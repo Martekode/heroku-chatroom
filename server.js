@@ -3,6 +3,7 @@ const http = require('http');
 let usernames = [];
 let serverUser;
 let counter = 0;
+let port = process.env.PORT || 8080;
 //requires above
 //defining application
 const app = express();
@@ -12,8 +13,8 @@ const clientPath = `${__dirname}/public`;
 app.use(express.static(clientPath));
 // use http to serve the app that express provides
 const server = http.createServer(app);
-server.listen(8080, () => {
-    console.log("server running on" + 8080);
+server.listen(port, () => {
+    console.log("server running on" + port);
 });
 const io = require('socket.io')(server);
 //connection from client to server
