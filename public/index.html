@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joe Mama's Chat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+        <h1>Joe Mama's Chat</h1>
+        <label for="identifier"></label>
+        <input id="identifier" name="identifier" type="text" placeholder="username">
+        <p id="errorMessage"></p>
+        <button id="init">confirm username</button>
+        <div id="chatroom" class="chatroom">
+            <div class="target" id="target"></div>
+        </div>
+        <input class="input"
+        id="inputChat"
+        type="text"
+        name="inputChat"
+        placeholder="type your message"
+        />
+        <button class="ALL" id="2ALL">2 ALL</button>
+        <button class="ME" id="2ME">2 ME</button>
+    </div>
+    <h1 class="title">connected users:</h1>
+    <div id="listTarget" class="container"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
