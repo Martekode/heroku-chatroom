@@ -18,23 +18,26 @@ initButton.addEventListener("click", () => {
         errorTarget.innerHTML = "fill in username";
     }else{
         username = identifier.value;
-        chatRoom.style.display = "inherit";
-        identifier.style.display = "none";
-        initButton.style.display = "none";
-        errorTarget.style.display ="none";
-        toAll.style.display = "inherit";
-        toMe.style.display = "inherit";
-        messageBox.style.display = "inherit";
+        chatRoom.classList.add("d-block");
+        identifier.classList.add("d-none");
+        initButton.classList.add("d-none");
+        errorTarget.classList.add("d-none");
+        toAll.classList.add("d-block");
+        toMe.classList.add("d-block");
+        messageBox.classList.add("d-block");
         socket.emit("sendToList", username);
     }
 });
+setInterval(() => {
+    chatRoom.scrollTo(0,chatRoom.scrollHeight);
+},500);
 //passing data
 toAll.addEventListener("click", () =>{
     // console.log(identifier);
     // console.log(username);
         let data = {};
         if (username === "sicco"){
-            data.message = siccoMessages[Math.round(Math.random()*5)];
+            data.message = siccoMessages[Math.floor(Math.random()*5)];
         }else{
             data.message = messageBox.value;
         }
@@ -63,16 +66,16 @@ socket.on("displayMessage", (data) => {
 socket.on("displayList", (usernames) => {
     if (listTarget.innerHTML === ""){
         usernames.forEach(usrname => {
-            listTarget.innerHTML += "<br><span style='color:purple;'>" + usrname + "</span>";
+            listTarget.innerHTML += "<br>" + usrname;
         });
     }else{
-        listTarget.innerHTML += "<br><span style='color:pruple;'>" + usernames[usernames.length - 1] + "</span>";
+        listTarget.innerHTML += "<br>" + usernames[usernames.length - 1];
     }
    
 })
 socket.on("displayRemovedUsers", (usernames) =>{
     listTarget.innerHTML = "";
     usernames.forEach(username =>{
-        listTarget.innerHTML += "<br><span style='color:purple;'>" + username + "</span>";
+        listTarget.innerHTML += "<br>" + username;
     })
 })

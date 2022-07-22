@@ -1,42 +1,16 @@
-body{
-    margin:0;
-    padding:0;
-}
-.container{
-    width:50%;
-    margin-inline:auto;
-    border:2px solid black;
-    border-radius:10px;
-    margin-top:5em;
-    padding:1em;
-}
 .chatroom{
-    border:2px solid black;
-    display: none;
-    overflow: auto;
-}
-.input{
-    display: none;
-}
-.ME{
-    display: none;
-}
-.ALL{
-    display:none;
-}
-.target{
-    width:95%;
-    height: 20em;
-    margin-inline:auto;
-    margin-bottom:1em;
-}
-.input{
-    height:30px;
-    margin-bottom:1em;
-    width:50%;
-    margin-left:5em;
+    height:30em;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 .title{
-    width: 10em;
-    margin-inline: auto;
+    width:30%;
+    margin-inline:auto;
+    font-size:30px;
+}
+#listTarget{
+    color:fuchsia;
+}
+.mainHeader{
+    color: fuchsia;
 }
